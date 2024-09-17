@@ -1,0 +1,83 @@
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
+--
+-- Host: localhost    Database: crowfunding_db
+-- ------------------------------------------------------
+-- Server version	8.4.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `CATEGORY`
+--
+
+DROP TABLE IF EXISTS `CATEGORY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `CATEGORY` (
+  `CATEGORY_ID` int NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) NOT NULL,
+  PRIMARY KEY (`CATEGORY_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CATEGORY`
+--
+
+LOCK TABLES `CATEGORY` WRITE;
+/*!40000 ALTER TABLE `CATEGORY` DISABLE KEYS */;
+INSERT INTO `CATEGORY` VALUES (1,'Technology'),(2,'Health'),(3,'Education');
+/*!40000 ALTER TABLE `CATEGORY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `FUNDRAISER`
+--
+
+DROP TABLE IF EXISTS `FUNDRAISER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `FUNDRAISER` (
+  `FUNDRAISER_ID` int NOT NULL AUTO_INCREMENT,
+  `ORGANIZER` varchar(255) NOT NULL,
+  `CAPTION` varchar(500) DEFAULT NULL,
+  `TARGET_FUNDING` decimal(10,2) DEFAULT NULL,
+  `CURRENT_FUNDING` decimal(10,2) DEFAULT NULL,
+  `CITY` varchar(255) DEFAULT NULL,
+  `ACTIVE` tinyint(1) DEFAULT NULL,
+  `CATEGORY_ID` int DEFAULT NULL,
+  PRIMARY KEY (`FUNDRAISER_ID`),
+  KEY `CATEGORY_ID` (`CATEGORY_ID`),
+  CONSTRAINT `fundraiser_ibfk_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `CATEGORY` (`CATEGORY_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FUNDRAISER`
+--
+
+LOCK TABLES `FUNDRAISER` WRITE;
+/*!40000 ALTER TABLE `FUNDRAISER` DISABLE KEYS */;
+INSERT INTO `FUNDRAISER` VALUES (1,'Alice Johnson','Help build a new tech startup',50000.00,12000.00,'New York',1,1),(2,'Bob Smith','Medical expenses for surgery',30000.00,18000.00,'Los Angeles',1,2),(3,'Clara White','Fund scholarships for underprivileged students',100000.00,50000.00,'San Francisco',1,3),(4,'David Grey','Develop a health app',75000.00,40000.00,'Austin',1,1),(5,'Eva Black','Support rural education initiatives',60000.00,25000.00,'Seattle',0,3);
+/*!40000 ALTER TABLE `FUNDRAISER` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-09-17 14:03:07
