@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Search Fundraisers</title>
+  </head>
+  <body>
+    <header>
+      <h1>Search for Fundraisers</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="search.html">Search Fundraisers</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="search-form">
+        <h2>Search Criteria</h2>
+        <form id="fundraiser-search-form">
+          <label for="organizer">Organizer:</label>
+          <input type="text" id="organizer" name="organizer" />
+
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" />
+
+          <label for="category">Category:</label>
+          <select id="category" name="category">
+            <option value="">Select Category</option>
+          </select>
+
+          <button type="submit">Search</button>
+          <button type="button" id="clear-btn">Clear</button>
+        </form>
+
+        <div id="search-results"></div>
+      </section>
+    </main>
+
+    <script src="js/search.js"></script>
+  </body>
+</html>
