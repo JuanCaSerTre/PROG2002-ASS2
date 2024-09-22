@@ -7,45 +7,58 @@
     <title>Search Fundraisers</title>
   </head>
   <body>
+    <!-- Header section containing the page title and navigation menu -->
     <header>
       <h1>Search for Fundraisers</h1>
       <nav>
+        <!-- Navigation links to Home and Search Fundraisers pages -->
         <a href="index.html">Home</a>
         <a href="search.html">Search Fundraisers</a>
       </nav>
     </header>
 
+    <!-- Main content area -->
     <main>
+      <!-- Section containing the search form -->
       <section id="search-form" class="card form-container">
         <h2>Search Criteria</h2>
         <form id="fundraiser-search-form">
+          <!-- Form group for Organizer input -->
           <div class="form-group">
             <label for="organizer">Organizer:</label>
             <input type="text" id="organizer" name="organizer" />
           </div>
 
+          <!-- Form group for City input -->
           <div class="form-group">
             <label for="city">City:</label>
             <input type="text" id="city" name="city" />
           </div>
 
+          <!-- Form group for Category dropdown -->
           <div class="form-group">
             <label for="category">Category:</label>
             <select id="category" name="category">
               <option value="">Select Category</option>
+              <!-- Default option -->
             </select>
           </div>
 
+          <!-- Button group for form actions -->
           <div class="button-group">
             <button type="submit">Search</button>
+            <!-- Search button -->
             <button type="button" id="clear-btn">Clear</button>
+            <!-- Clear button -->
           </div>
         </form>
       </section>
 
+      <!-- Container for displaying search results in a grid layout -->
       <div id="search-results" class="grid-container"></div>
     </main>
 
+    <!-- Link to the JavaScript file that handles search functionality -->
     <script src="js/search.js"></script>
   </body>
 </html>
