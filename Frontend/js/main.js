@@ -6,17 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((fundraisers) => {
       const fundraisersContainer = document.getElementById("fundraisers");
       fundraisers.forEach((fundraiser) => {
-        const fundraiserDiv = document.createElement("div");
-        fundraiserDiv.innerHTML = `
+        // Create a card div
+        const fundraiserCard = document.createElement("div");
+        fundraiserCard.classList.add("card");
+
+        // Populate the card with fundraiser data
+        fundraiserCard.innerHTML = `
                     <h3>${fundraiser.CAPTION}</h3>
-                    <p>Organizer: ${fundraiser.ORGANIZER}</p>
-                    <p>Target: $${fundraiser.TARGET_FUNDING}</p>
-                    <p>Current Funding: $${fundraiser.CURRENT_FUNDING}</p>
-                    <p>City: ${fundraiser.CITY}</p>
-                    <p>Category: ${fundraiser.CATEGORY}</p>
+                    <p><strong>Organizer:</strong> ${fundraiser.ORGANIZER}</p>
+                    <p><strong>Target:</strong> $${fundraiser.TARGET_FUNDING}</p>
+                    <p><strong>Current Funding:</strong> $${fundraiser.CURRENT_FUNDING}</p>
+                    <p><strong>City:</strong> ${fundraiser.CITY}</p>
+                    <p><strong>Category:</strong> ${fundraiser.CATEGORY}</p>
                     <a href="fundraiser.html?id=${fundraiser.FUNDRAISER_ID}">View Details</a>
                 `;
-        fundraisersContainer.appendChild(fundraiserDiv);
+
+        // Add the card to the grid container
+        fundraisersContainer.appendChild(fundraiserCard);
       });
     })
     .catch((error) => console.error("Error fetching fundraisers:", error));

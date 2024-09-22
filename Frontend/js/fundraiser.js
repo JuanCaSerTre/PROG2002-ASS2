@@ -10,18 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const detailsContainer = document.getElementById("fundraiser-details");
       detailsContainer.innerHTML = `
                 <h2>${fundraiser.CAPTION}</h2>
-                <p>Organizer: ${fundraiser.ORGANIZER}</p>
-                <p>Target Funding: $${fundraiser.TARGET_FUNDING}</p>
-                <p>Current Funding: $${fundraiser.CURRENT_FUNDING}</p>
-                <p>City: ${fundraiser.CITY}</p>
-                <p>Category: ${fundraiser.CATEGORY}</p>
+                <p><strong>Organizer:</strong> ${fundraiser.ORGANIZER}</p>
+                <p><strong>Target Funding:</strong> $${fundraiser.TARGET_FUNDING}</p>
+                <p><strong>Current Funding:</strong> $${fundraiser.CURRENT_FUNDING}</p>
+                <p><strong>City:</strong> ${fundraiser.CITY}</p>
+                <p><strong>Category:</strong> ${fundraiser.CATEGORY}</p>
             `;
     })
     .catch((error) =>
       console.error("Error fetching fundraiser details:", error)
     );
 
+  // Donate button event listener
   document.getElementById("donate-btn").addEventListener("click", () => {
     alert("This feature is under construction");
+  });
+
+  // Back to previous page button event listener
+  document.getElementById("back-btn").addEventListener("click", () => {
+    window.history.back(); // Takes the user back to the previous page
   });
 });

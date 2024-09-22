@@ -16,26 +16,34 @@
     </header>
 
     <main>
-      <section id="search-form">
+      <section id="search-form" class="card form-container">
         <h2>Search Criteria</h2>
         <form id="fundraiser-search-form">
-          <label for="organizer">Organizer:</label>
-          <input type="text" id="organizer" name="organizer" />
+          <div class="form-group">
+            <label for="organizer">Organizer:</label>
+            <input type="text" id="organizer" name="organizer" />
+          </div>
 
-          <label for="city">City:</label>
-          <input type="text" id="city" name="city" />
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" />
+          </div>
 
-          <label for="category">Category:</label>
-          <select id="category" name="category">
-            <option value="">Select Category</option>
-          </select>
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+              <option value="">Select Category</option>
+            </select>
+          </div>
 
-          <button type="submit">Search</button>
-          <button type="button" id="clear-btn">Clear</button>
+          <div class="button-group">
+            <button type="submit">Search</button>
+            <button type="button" id="clear-btn">Clear</button>
+          </div>
         </form>
-
-        <div id="search-results"></div>
       </section>
+
+      <div id="search-results" class="grid-container"></div>
     </main>
 
     <script src="js/search.js"></script>
