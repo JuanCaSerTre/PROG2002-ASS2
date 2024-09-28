@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Populate the card with fundraiser data using template literals
         fundraiserCard.innerHTML = `
+                      <img src="src/${fundraiser.CAPTION}.jpg" alt="${fundraiser.CAPTION}" style="width: 100%; height: auto;" onerror="this.src='src/default.jpg';"/>
                       <h3>${fundraiser.CAPTION}</h3>
                       <p><strong>Organizer:</strong> ${fundraiser.ORGANIZER}</p>
                       <p><strong>Target:</strong> $${fundraiser.TARGET_FUNDING}</p>
